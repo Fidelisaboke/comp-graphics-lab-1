@@ -69,6 +69,7 @@ ctx.set_source_rgb(0, 0, 0.5)
 ctx.set_line_width(3)
 ctx.stroke()
 
+# Crescent moon gradient
 gradient = cairo.RadialGradient(600, 120, 50, 600, 120, 0)
 gradient.add_color_stop_rgb(0, 1.0, 0.84, 0)
 gradient.add_color_stop_rgb(0.5, 1.0, 0.76, 0.03)
@@ -80,10 +81,16 @@ ctx.set_source_rgb(0, 0, 1)
 ctx.set_line_width(2)
 ctx.stroke()
 
-# Crescent moon
+# Superimposing circle
 ctx.set_source_rgb(0.8, 0.8, 0.8)
 ctx.arc(620, 100, 50, math.radians(0), math.radians(360))
 ctx.fill()
+
+# Arc to complete the crescent
+ctx.arc(620, 100, 50, math.radians(60), math.radians(210))
+ctx.set_source_rgb(0, 0, 1)
+ctx.set_line_width(2)
+ctx.stroke()
 
 # Output
 surface.write_to_png(f"{OUTPUT_DIR}lab_one_img.png")
